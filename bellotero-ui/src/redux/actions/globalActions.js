@@ -16,9 +16,9 @@ function getGlobalData() {
         dispatch(request());
         // Promise
         globalServices.getGlobalData().then(response => {
-            console.log('response: ', response);
+            dispatch(success(response.data))
         }).catch(err => {
-            console.log('getGlobalData err: ', err);
+            dispatch(error());
         })
     }
     function request() { return { type: globalConstants.GET_GLOBAL_DATA_REQUEST } }
