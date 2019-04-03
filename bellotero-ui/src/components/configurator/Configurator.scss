@@ -4,13 +4,75 @@
     
     text-align: left;
     padding: 12vh 12vw;
-    .conf_header{
-        font-size: 40px !important;
-        font-weight: bold;
+    .info_section{
+        padding-right: 8em;
+        .conf_header{
+            font-size: 40px !important;
+            font-weight: bold;
+        }
+        .desc_header{
+            text-align: justify;
+            font-size: 16px;
+            line-height: 24px;
+        }
     }
-    .desc_header{
-        text-align: justify;
-        font-size: 16px;
-        line-height: 24px;
+    .calculator_section{
+        .title_form{
+            margin: 0;
+            font-size: 14px; max-width: 12em;
+            font-weight: bold;
+        }
+        .state-display{
+            border: solid 0.1em #d6dcff;
+            border-radius: 4px;
+            height: 4em; width: 12em;
+            & > svg{
+                font-size: 2em;
+                opacity: 0.24;
+            }
+            & > p {
+                width: 3.5em;
+                text-align: right;
+                margin-right: 0.2em; 
+                margin-bottom: 0.1em;
+                font-size: 36px;
+                font-weight: 500; 
+            }
+        }
+        .min-state-display{
+            border: solid 0.1em #d6dcff;
+            border-radius: 4px;
+            height: 4em; width: 4em;
+            & > p {
+                width: 3.5em;
+                text-align: right;
+                margin-right: 0.2em; 
+                margin-bottom: 0.1em;
+                font-size: 36px;
+                font-weight: 500; 
+            }
+        }
+        .slider_controller{
+            color: $primary !important;
+        }
+        .label-section{
+            .label-counter{
+                & > svg{
+                    margin-bottom: 0.6em;
+                    font-size: 2em;
+                    color: $primary;
+                }
+                & > p {
+                    font-size: 72px;
+                    text-align: right;
+                    margin-bottom: 0 !important;
+                    margin-right: 0.2em !important; 
+                }
+            }
+            .label-subtitle{
+                text-align: right;
+                font-size: 14px;
+            }
+        }
     }
 }
