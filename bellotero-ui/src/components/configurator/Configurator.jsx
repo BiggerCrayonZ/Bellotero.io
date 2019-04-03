@@ -5,8 +5,9 @@ import './Configurator.scss';
 import 'rc-slider/assets/index.css';
 
 // Components
-import { AttachMoney } from '@material-ui/icons';
+import { AttachMoney, Error } from '@material-ui/icons';
 import Slider from 'rc-slider';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Actions
 import configuratorActions from '../../redux/actions/configuratorActions';
@@ -55,6 +56,33 @@ class Configurator extends Component {
     }
 
     // Render
+
+    renderDescription = () => {
+        const { getConfiguratorData } = this.props;
+        if (getConfiguratorData.submit) {
+            return (<CircularProgress color="secondary" />);
+        } else {
+            if (getConfiguratorData.success && getConfiguratorData.data) {
+                return (
+                    <div className="info_section d-flex flex-column w-100 ">
+                        <h4 className="conf_header bg-primary text-white px-2 d-flex align-items-center align-items-center">
+                            {getConfiguratorData.data.title}
+                        </h4>
+                        <p className="desc_header pt-4">
+                            {getConfiguratorData.data.description}
+                        </p>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="w-100 p-4">
+                        <Error />
+                    </div>
+                )
+            }
+        }
+    }
+
     renderLabels = () => {
         return (
             <div className="mt-4 labels w-100 d-flex justify-content-around align-items-end">
@@ -81,14 +109,8 @@ class Configurator extends Component {
         console.log('props: ', this.props);
         return (
             <div className="configurator_container d-flex justify-content-between ">
-                <div className="info_section d-flex flex-column w-100 ">
-                    <h4 className="conf_header bg-primary text-white px-2 d-flex align-items-center align-items-center">
-                        Save more with Bellotero.io
-                    </h4>
-                    <p className="desc_header pt-4">
-                        With Bellotero.io you save time and money make real-time decisions that boost your business and your bottom line. Get less wrongfully blocked payments, save time on bookkeeping and no need to worry about safety.
-                    </p>
-                </div>
+                {/* Render Description */}
+                {this.renderDescription()}
                 <div className="calculator_section w-100 d-flex flex-column">
                     {/* Monthly ingredient spending */}
                     <div className="w-100 d-flex justify-content-between align-items-end">
