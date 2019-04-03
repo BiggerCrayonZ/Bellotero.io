@@ -4,18 +4,27 @@ import React, { Component } from 'react';
 import './Configurator.scss';
 import 'rc-slider/assets/index.css';
 
-
 // Components
 import { AttachMoney } from '@material-ui/icons';
 import Slider from 'rc-slider';
+
+// Actions
+import configuratorActions from '../../redux/actions/configuratorActions';
+
 class Configurator extends Component {
 
     state = {
         montlyValue: 10,
         employeesValue: 1,
-        estimatedFoodCostSaving: 0,
-        estimatedAnnualSavings: 0,
-        estimatedFoodWitoutFixed: 0
+        estimatedFoodCostSaving: 3.00,
+        estimatedAnnualSavings: 1340.00,
+        estimatedFoodWitoutFixed: 3.00
+    }
+
+    // RLC
+    componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch(configuratorActions.getConfigurationData());
     }
 
     // Handle
@@ -48,9 +57,9 @@ class Configurator extends Component {
     // Render
     renderLabels = () => {
         return (
-            <div className="mt-4 w-100 d-flex justify-content-around align-items-end">
+            <div className="mt-4 labels w-100 d-flex justify-content-around align-items-end">
                 <div className="label-section w-100 d-flex flex-column">
-                    <div className="label-counter w-100 d-flex justify-content-between align-items-end">
+                    <div className="label-counter w-100 d-flex justify-content-end align-items-end">
                         <AttachMoney />
                         <p>{this.state.estimatedFoodCostSaving}</p>
                     </div>
@@ -58,7 +67,7 @@ class Configurator extends Component {
                 </div>
                 <div className="empty"></div>
                 <div className="label-section w-100 d-flex flex-column">
-                    <div className="label-counter w-100 d-flex justify-content-between align-items-end">
+                    <div className="label-counter w-100 d-flex justify-content-end align-items-end">
                         <AttachMoney />
                         <p>{this.state.estimatedAnnualSavings}</p>
                     </div>
@@ -69,9 +78,9 @@ class Configurator extends Component {
     }
 
     render() {
-        console.log('state: ', this.state);
+        console.log('props: ', this.props);
         return (
-            <div className="configurator_container w-100 d-flex justify-content-between ">
+            <div className="configurator_container d-flex justify-content-between ">
                 <div className="info_section d-flex flex-column w-100 ">
                     <h4 className="conf_header bg-primary text-white px-2 d-flex align-items-center align-items-center">
                         Save more with Bellotero.io
