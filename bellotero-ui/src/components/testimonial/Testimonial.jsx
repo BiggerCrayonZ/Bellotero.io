@@ -78,7 +78,6 @@ class Testimonial extends Component {
     }
 
     render() {
-        console.log('testimonials: ', this.props);
         return (
             <div className="testimonial_container w-100 h-100 ">
                 <div className="w-100 d-flex justify-content-start">

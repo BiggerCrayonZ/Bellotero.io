@@ -14,7 +14,7 @@ function getTestimonials() {
         dispatch(request());
         // Promise
         testimonialServices.getTestimonials().then(response => {
-            dispatch(success(response));
+            dispatch(success(response.data.slider));
         }).catch(err => {
             dispatch(error());
         })
