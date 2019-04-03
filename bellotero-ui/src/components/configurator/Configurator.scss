@@ -1,0 +1,16 @@
+@import '../../assets//style/colors.scss';
+
+.configurator_container{
+    
+    text-align: left;
+    padding: 12vh 12vw;
+    .conf_header{
+        font-size: 40px !important;
+        font-weight: bold;
+    }
+    .desc_header{
+        text-align: justify;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
