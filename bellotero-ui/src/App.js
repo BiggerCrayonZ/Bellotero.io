@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Components
 import NavBar from './components/template/NavBar';
+import Testimonial from './components/testimonial/TestimonialContainer'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Error } from '@material-ui/icons';
 
@@ -29,8 +30,8 @@ class App extends Component {
           <CircularProgress color="primary" />
         </div>)
     } else {
-      if (globalReducer.success && globalReducer.data) {
-        return (<NavBar items={globalReducer.data.menu.items} />);
+      if (globalReducer.success && globalReducer.data.items) {
+        return (<NavBar items={globalReducer.data.items} />);
       } else {
         return (
           <div className=" h-100 d-flex align-items-center ">
@@ -42,25 +43,24 @@ class App extends Component {
   }
 
   renderRoute = () => {
-    let routeArray = [];
     const { globalReducer } = this.props;
-    if (globalReducer.data && globalReducer.success) {
-      globalReducer.data.menu.items.map(item => {
-        switch (item.text) {
-          case 'Testimonial':
-            routeArray.push(<Route path={item.route} exact={true} />)
-            break;
-          default:
-            routeArray.push(<Route path={item.route} exact={true} />)
-        }
-      })
+    if (globalReducer.submit) {
       return (
-        <div className="w-100 h-100 p-2 ">
-          {routeArray}
+        <div className="w-100 h-100 d-flex align-items-center justify-content-center">
+          <CircularProgress />
         </div>
       );
     } else {
-      return (<Error />);
+      if (globalReducer.success && globalReducer.data) {
+        let routeArray = [];
+        const items = globalReducer.data.items;
+        items.map((item, index) => {
+          routeArray.push(<Route key={index} path={"/" + item.route} component={item.component} />)
+        });
+        return routeArray;
+      } else {
+        return (<Error />);
+      }
     }
   }
 
@@ -78,7 +78,9 @@ class App extends Component {
           </div>
           <div className="bg-info">
             {/* Render Route */}
-            {this.renderRoute()}
+            <div className="w-100 h-100 p-2 ">
+              {this.renderRoute()}
+            </div>
           </div>
         </div>
       </Router>

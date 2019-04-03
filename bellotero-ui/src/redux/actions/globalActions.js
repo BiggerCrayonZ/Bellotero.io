@@ -1,10 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
 //Service
+import React from "react";
 import globalServices from '../services/globalServices';
 
 // Constants
 import globalConstants from '../constants/globalConstants';
+
+// Components
+import Testimonial from '../../components/testimonial/TestimonialContainer';
+import Configurator from '../../components/configurator/ConfiguratorContainer';
+
+const defaultComponent = () => <div className="w-100 h-100"></div>;
+
 
 export default {
     getGlobalData
@@ -16,7 +22,20 @@ function getGlobalData() {
         dispatch(request());
         // Promise
         globalServices.getGlobalData().then(response => {
-            dispatch(success(response.data))
+            let array = response.data.menu;
+            array.items.map(item => {
+                switch (item.text) {
+                    case 'Testimonial':
+                        item.component = Testimonial;
+                        break;
+                    case 'Configurator':
+                        item.component = Configurator;
+                        break;
+                    default:
+                        item.component = defaultComponent
+                }
+            });
+            dispatch(success(array));
         }).catch(err => {
             dispatch(error());
         })
