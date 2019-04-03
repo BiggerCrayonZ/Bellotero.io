@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Components
 import NavBar from './components/template/NavBar';
-import Testimonial from './components/testimonial/TestimonialContainer'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Error } from '@material-ui/icons';
 
@@ -54,7 +53,7 @@ class App extends Component {
       if (globalReducer.success && globalReducer.data) {
         let routeArray = [];
         const items = globalReducer.data.items;
-        items.map((item, index) => {
+        items.forEach((item, index) => {
           routeArray.push(<Route key={index} path={"/" + item.route} component={item.component} />)
         });
         return routeArray;

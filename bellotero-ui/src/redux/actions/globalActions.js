@@ -23,7 +23,7 @@ function getGlobalData() {
         // Promise
         globalServices.getGlobalData().then(response => {
             let array = response.data.menu;
-            array.items.map(item => {
+            array.items.forEach(item => {
                 switch (item.text) {
                     case 'Testimonial':
                         item.component = Testimonial;

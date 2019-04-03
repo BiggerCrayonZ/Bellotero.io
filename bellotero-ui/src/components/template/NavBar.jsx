@@ -10,7 +10,7 @@ class NavBar extends Component {
 
     renderItems = () => {
         let array = [];
-        this.props.items.map((item, index) => {
+        this.props.items.forEach((item, index) => {
             array.push(<Link key={index} className="nav-link" to={item.route}> {item.text} </Link>);
         });
         return array;
