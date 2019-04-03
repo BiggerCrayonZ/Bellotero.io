@@ -3,8 +3,8 @@ import Testimonial from './Testimonial';
 
 
 function mapStateToProps(state) {
-    //const {  } = state;
-    return { };
+    const { getTestimonials } = state;
+    return { getTestimonials };
 }
 
 export default connect(mapStateToProps)(Testimonial)
