@@ -3,8 +3,8 @@ import Configurator from './Configurator';
 
 
 function mapStateToProps(state) {
-    const { getConfiguratorData } = state;
-    return { getConfiguratorData };
+    const { getConfiguratorData, getLabels } = state;
+    return { getConfiguratorData, getLabels };
 }
 
 export default connect(mapStateToProps)(Configurator)

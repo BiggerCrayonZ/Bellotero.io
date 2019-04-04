@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux'
 import globalReducer from './globalReducer';
 import getTestimonials  from './testimonialsReducer';
-import getConfiguratorData from './configuratorReducer';
+import {getConfiguratorData, getLabels} from './configuratorReducer';
 
 const rootReducer = combineReducers({
     globalReducer,
     getTestimonials,
-    getConfiguratorData
+    getConfiguratorData,
+    getLabels
 })
 
 export default rootReducer;

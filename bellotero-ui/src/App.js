@@ -12,6 +12,9 @@ import NavBar from './components/template/NavBar';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Error } from '@material-ui/icons';
 
+// Img
+import bellotero from './assets/img/bellotero.png';
+
 class App extends Component {
 
   // React LC
@@ -70,7 +73,7 @@ class App extends Component {
         <div className="App w-100">
           <div className="bg-white d-flex justify-content-around">
             <div className="d-flex justify-content-center align-items-center">
-              Logotipo
+              <img alt="bellotero" className="logo" src={bellotero} />
             </div>
             {/* Render NavBar */}
             {this.renderNavBar()}

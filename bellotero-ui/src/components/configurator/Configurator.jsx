@@ -23,6 +23,12 @@ class Configurator extends Component {
     }
 
     // RLC
+
+    componentWillMount() {
+        const { dispatch } = this.props;
+        dispatch(configuratorActions.getLabels());
+    }
+
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(configuratorActions.getConfigurationData());
@@ -84,28 +90,33 @@ class Configurator extends Component {
     }
 
     renderLabels = () => {
-        return (
-            <div className="mt-4 labels w-100 d-flex justify-content-around align-items-end">
-                <div className="label-section w-100 d-flex flex-column">
-                    <div className="label-counter w-100 d-flex justify-content-end align-items-end">
-                        <AttachMoney />
-                        <p>{this.state.estimatedFoodCostSaving}</p>
+        const { getLabels } = this.props;
+        if (getLabels.data !== "") {
+            const { data } = getLabels;
+            return (
+                <div className="mt-4 labels w-100 d-flex justify-content-around align-items-end">
+                    <div className="label-section w-100 d-flex flex-column">
+                        <div className="label-counter w-100 d-flex justify-content-end align-items-end">
+                            <AttachMoney />
+                            <p>{this.state.estimatedFoodCostSaving}</p>
+                        </div>
+                        <div className="label-subtitle w-100 ">{data.label_food}</div>
                     </div>
-                    <div className="label-subtitle w-100 ">Estimated cost food savings</div>
-                </div>
-                <div className="empty"></div>
-                <div className="label-section w-100 d-flex flex-column">
-                    <div className="label-counter w-100 d-flex justify-content-end align-items-end">
-                        <AttachMoney />
-                        <p>{this.state.estimatedAnnualSavings}</p>
+                    <div className="empty"></div>
+                    <div className="label-section w-100 d-flex flex-column">
+                        <div className="label-counter w-100 d-flex justify-content-end align-items-end">
+                            <AttachMoney />
+                            <p>{this.state.estimatedAnnualSavings}</p>
+                        </div>
+                        <div className="label-subtitle w-100 ">{data.label_annual}</div>
                     </div>
-                    <div className="label-subtitle w-100 ">Your estimated annual savings</div>
                 </div>
-            </div>
-        );
+            );
+        } else { return (<CircularProgress color="secondary" />); }
     }
 
     render() {
+        const { getLabels } = this.props;
         console.log('props: ', this.props);
         return (
             <div className="configurator_container d-flex justify-content-between ">
@@ -114,7 +125,10 @@ class Configurator extends Component {
                 <div className="calculator_section w-100 d-flex flex-column">
                     {/* Monthly ingredient spending */}
                     <div className="w-100 d-flex justify-content-between align-items-end">
-                        <p className="title_form">Monthly ingredient spending</p>
+                        {getLabels.data !== "" ?
+                            <p className="title_form"> {getLabels.data.label_montly} </p>
+                            :
+                            <CircularProgress color="secondary" />}
                         <div className="state-display d-flex justify-content-between align-items-center">
                             <AttachMoney />
                             <p>{this.state.montlyValue}</p>
@@ -133,7 +147,10 @@ class Configurator extends Component {
                     </div>
                     {/* Full-time employees that process invoices */}
                     <div className="w-100 d-flex justify-content-between align-items-end">
-                        <p className="title_form">Full-time employees that process invoices</p>
+                        {getLabels.data !== "" ?
+                            <p className="title_form"> {getLabels.data.label_employee} </p>
+                            :
+                            <CircularProgress color="secondary" />}
                         <div className="mt-4 min-state-display d-flex justify-content-end align-items-center">
                             <p>{this.state.employeesValue}</p>
                         </div>
