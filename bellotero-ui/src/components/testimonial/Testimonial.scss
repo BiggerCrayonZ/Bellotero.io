@@ -1,0 +1,38 @@
+@import '../../assets//style/colors.scss';
+
+.testimonial_container{
+    padding: 12vh 12vw;
+    display: -moz-grid;
+    display: -ms-grid;
+    display: grid;
+    grid-template-rows: 10% 90% ;
+    & > h4 {
+        background-color: $primary;
+    }
+    .test_header{
+        font-family: 'Roboto-Black';
+        font-size: 40px !important;
+        font-weight: bold;
+    }
+    .title_section{
+        font-family: 'Roboto-Bold';
+        text-align: left;
+        & > h5 { font-size: 32px; }
+        & > span {
+            font-family: 'Roboto-Regular';
+            font-size: 14px; 
+        }
+    }
+    .desc_section{
+        font-family: 'Roboto-Bold';
+        text-align: justify;
+        font-size: 24px;
+    }
+    .switcher_section{
+        z-index: 2;
+        height: 45px;
+        position: absolute;
+        bottom: 12vh;
+        right: 10vw;
+    }
+}

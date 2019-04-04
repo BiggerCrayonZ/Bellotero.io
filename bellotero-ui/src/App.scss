@@ -1,0 +1,16 @@
+/* Colors */
+@import './assets//style/colors.scss';
+/* Fonts */
+@import './assets/style/fonts.scss';
+/* Bootstrap */
+@import '~bootstrap/scss/bootstrap';
+
+
+.App {
+  font-family: 'Roboto-Regular';
+  height: 100vh;
+  text-align: center;
+  display: -moz-grid;
+  display: grid;
+  grid-template-rows: 10% 90%;
+}

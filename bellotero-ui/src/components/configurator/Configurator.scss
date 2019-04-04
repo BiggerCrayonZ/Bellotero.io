@@ -1,0 +1,91 @@
+@import '../../assets//style/colors.scss';
+
+.configurator_container{
+    
+    text-align: left;
+    padding: 12vh 12vw;
+    .info_section{
+        width: 70% !important;
+        padding-right: 8em;
+        .conf_header{
+            font-family: 'Roboto-Black';
+            font-size: 40px !important;
+        }
+        .desc_header{
+            font-family: 'Roboto-Regular';
+            text-align: justify;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+    .calculator_section{
+        .title_form{
+            font-family: 'Roboto-Bold';
+            margin: 0;
+            font-size: 14px; max-width: 12em;
+        }
+        .state-display{
+            border: solid 0.1em #d6dcff;
+            border-radius: 4px;
+            height: 4em; width: 12em;
+            & > svg{
+                font-size: 2em;
+                opacity: 0.24;
+            }
+            & > p {
+                font-family: 'Roboto-Medium';
+                width: 3.5em;
+                text-align: right;
+                margin-right: 0.2em; 
+                margin-bottom: 0.1em;
+                font-size: 36px;
+            }
+        }
+        .min-state-display{
+            border: solid 0.1em #d6dcff;
+            border-radius: 4px;
+            height: 4em; width: 4em;
+            & > p {
+                font-family: 'Roboto-Medium';
+                width: 3.5em;
+                text-align: right;
+                margin-right: 0.2em; 
+                margin-bottom: 0.1em;
+                font-size: 36px;
+            }
+        }
+        .slider_controller{
+            color: $primary !important;
+        }
+        .labels{
+            display: -moz-grid;
+            display: -ms-grid;
+            display: grid;
+            grid-template-columns: 30% 70%;
+            & > div{
+                margin-right: 0.5em;
+            }
+            .label-section{
+                .label-counter{
+                    & > svg{
+                        margin-bottom: 0.6em;
+                        font-size: 2em;
+                        color: $primary;
+                    }
+                    & > p {
+                        font-family: 'Roboto-Medium';
+                        color: $primary;
+                        font-size: 72px;
+                        text-align: right;
+                        margin-bottom: 0 !important;
+                    }
+                }
+                .label-subtitle{
+                    font-family: 'Roboto-Medium';
+                    text-align: right;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
