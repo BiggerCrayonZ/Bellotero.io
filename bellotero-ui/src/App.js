@@ -57,19 +57,11 @@ class App extends Component {
         let routeArray = [];
         const items = globalReducer.data.items;
         items.forEach((item, index) => {
-          if (item.text === 'Testimonial') {
-            routeArray.push(
-              <Route
-                key={index}
-                path={["/", "/" + item.route]}
-                component={item.component} />)
-          } else {
-            routeArray.push(
-              <Route
-                key={index}
-                path={"/" + item.route}
-                component={item.component} />)
-          }
+          routeArray.push(
+            <Route
+              key={index}
+              path={"/" + item.route}
+              component={item.component} />)
         });
         return routeArray;
       } else {

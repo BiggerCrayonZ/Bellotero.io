@@ -15,18 +15,31 @@ import configuratorActions from '../../redux/actions/configuratorActions';
 class Configurator extends Component {
 
     state = {
-        montlyValue: 10,
-        employeesValue: 1,
-        estimatedFoodCostSaving: '3.00',
-        estimatedAnnualSavings: '1340.00',
-        estimatedFoodWitoutFixed: 3.00
+        montlyValue: 0,
+        employeesValue: 0,
+        estimatedFoodCostSaving: '',
+        estimatedAnnualSavings: '',
+        estimatedFoodWitoutFixed: 0
     }
 
     // RLC
 
     componentWillMount() {
-        const { dispatch } = this.props;
+        const { dispatch, getInitialState } = this.props;
+        const {
+            montlyValue,
+            employeesValue,
+            estimatedFoodCostSaving,
+            estimatedAnnualSavings,
+            estimatedFoodWitoutFixed } = getInitialState;
         dispatch(configuratorActions.getLabels());
+        this.setState({
+            montlyValue,
+            employeesValue,
+            estimatedFoodCostSaving,
+            estimatedAnnualSavings,
+            estimatedFoodWitoutFixed
+        });
     }
 
     componentDidMount() {
@@ -90,6 +103,7 @@ class Configurator extends Component {
     }
 
     renderLabels = () => {
+        console.log('props: ', this.props)
         const { getLabels } = this.props;
         if (getLabels.data !== "") {
             const { data } = getLabels;

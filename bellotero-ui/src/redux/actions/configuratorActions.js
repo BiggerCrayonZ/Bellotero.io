@@ -23,7 +23,10 @@ function getConfigurationData() {
     }
     function request() { return { type: configuratorConstants.GET_CONFIGURATOR_DATA_REQUEST } }
     function success(data) { return { type: configuratorConstants.GET_CONFIGURATOR_DATA_SUCCESS, data } }
-    function error() { return { type: configuratorConstants.GET_CONFIGURATOR_DATA_ERROR } }
+    function error() {
+        
+        return { type: configuratorConstants.GET_CONFIGURATOR_DATA_ERROR }
+    }
 }
 
 function getLabels() {

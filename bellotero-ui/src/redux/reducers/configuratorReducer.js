@@ -1,7 +1,14 @@
 // Constants
 import configuratorConstants from '../constants/configuratorConstants';
 
-
+// Init State
+const initialState = {
+    montlyValue: 10,
+    employeesValue: 1,
+    estimatedFoodCostSaving: '3.00',
+    estimatedAnnualSavings: '1340.00',
+    estimatedFoodWitoutFixed: 3.00
+}
 
 export function getConfiguratorData(state = { submit: false }, action) {
     let newState = Object.assign({}, state);
@@ -32,4 +39,8 @@ export function getLabels(state = { data: '' }, action) {
         default:
             return state;
     }
+}
+
+export function getInitialState() {
+    return initialState;
 }
