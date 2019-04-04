@@ -58,6 +58,10 @@
             color: $primary !important;
         }
         .labels{
+            display: -moz-grid;
+            display: -ms-grid;
+            display: grid;
+            grid-template-columns: 30% 70%;
             & > div{
                 margin-right: 0.5em;
             }
@@ -69,7 +73,7 @@
                         color: $primary;
                     }
                     & > p {
-                        font-family: 'Roboto-Bold';
+                        font-family: 'Roboto-Medium';
                         color: $primary;
                         font-size: 72px;
                         text-align: right;

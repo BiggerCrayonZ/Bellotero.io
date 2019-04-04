@@ -17,8 +17,8 @@ class Configurator extends Component {
     state = {
         montlyValue: 10,
         employeesValue: 1,
-        estimatedFoodCostSaving: 3.00,
-        estimatedAnnualSavings: 1340.00,
+        estimatedFoodCostSaving: '3.00',
+        estimatedAnnualSavings: '1340.00',
         estimatedFoodWitoutFixed: 3.00
     }
 
@@ -94,7 +94,7 @@ class Configurator extends Component {
         if (getLabels.data !== "") {
             const { data } = getLabels;
             return (
-                <div className="mt-4 labels w-100 d-flex justify-content-around align-items-end">
+                <div className="mt-4 labels w-100 ">
                     <div className="label-section w-100 d-flex flex-column">
                         <div className="label-counter w-100 d-flex justify-content-end align-items-end">
                             <AttachMoney />
@@ -102,7 +102,6 @@ class Configurator extends Component {
                         </div>
                         <div className="label-subtitle w-100 ">{data.label_food}</div>
                     </div>
-                    <div className="empty"></div>
                     <div className="label-section w-100 d-flex flex-column">
                         <div className="label-counter w-100 d-flex justify-content-end align-items-end">
                             <AttachMoney />

@@ -2,4 +2,18 @@
 .navbar_container{
     font-family: 'Roboto-Medium';
     max-width: 50%;
+    & > a{
+        height: 100% !important;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
+
+.selected{
+    font-family: 'Roboto-Bold';
+    border-top: solid 4px $primary;
 }

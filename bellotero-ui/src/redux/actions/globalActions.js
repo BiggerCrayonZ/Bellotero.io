@@ -9,7 +9,7 @@ import globalConstants from '../constants/globalConstants';
 import Testimonial from '../../components/testimonial/TestimonialContainer';
 import Configurator from '../../components/configurator/ConfiguratorContainer';
 
-const defaultComponent = () => <div className="w-100 h-100"></div>;
+const defaultComponent = () => <div className="w-100 h-100">Empty</div>;
 
 
 export default {

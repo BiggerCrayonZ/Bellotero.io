@@ -4,14 +4,20 @@ import React, { Component } from 'react';
 import './NavBar.scss';
 
 // Router
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
 
     renderItems = () => {
         let array = [];
         this.props.items.forEach((item, index) => {
-            array.push(<Link key={index} className="nav-link" to={item.route}> {item.text} </Link>);
+            array.push(
+                <NavLink
+                    activeClassName="selected"
+                    key={index}
+                    to={"/" + item.route}>
+                    {item.text}
+                </NavLink>);
         });
         return array;
     }
