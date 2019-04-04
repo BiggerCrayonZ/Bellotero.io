@@ -66,7 +66,7 @@ class Configurator extends Component {
     renderDescription = () => {
         const { getConfiguratorData } = this.props;
         if (getConfiguratorData.submit) {
-            return (<CircularProgress color="secondary" />);
+            return (<CircularProgress color="primary" />);
         } else {
             if (getConfiguratorData.success && getConfiguratorData.data) {
                 return (
@@ -112,7 +112,7 @@ class Configurator extends Component {
                     </div>
                 </div>
             );
-        } else { return (<CircularProgress color="secondary" />); }
+        } else { return (<CircularProgress color="primary" />); }
     }
 
     render() {
@@ -128,7 +128,7 @@ class Configurator extends Component {
                         {getLabels.data !== "" ?
                             <p className="title_form"> {getLabels.data.label_montly} </p>
                             :
-                            <CircularProgress color="secondary" />}
+                            <CircularProgress color="primary" />}
                         <div className="state-display d-flex justify-content-between align-items-center">
                             <AttachMoney />
                             <p>{this.state.montlyValue}</p>
@@ -150,7 +150,7 @@ class Configurator extends Component {
                         {getLabels.data !== "" ?
                             <p className="title_form"> {getLabels.data.label_employee} </p>
                             :
-                            <CircularProgress color="secondary" />}
+                            <CircularProgress color="primary" />}
                         <div className="mt-4 min-state-display d-flex justify-content-end align-items-center">
                             <p>{this.state.employeesValue}</p>
                         </div>
